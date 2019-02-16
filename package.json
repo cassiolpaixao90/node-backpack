@@ -5,13 +5,13 @@
   "repository": "https://github.com/cassiolpaixao90/node-build-back.git",
   "author": "Cássio Paixão <cassiopaixaoti@gmail.com>",
   "license": "MIT",
-  "private": false,
+  "private": true,
   "scripts": {
-    "lint": "eslint src --color",
-    "build": "babel src --out-dir dist --ignore node_modules",
-    "p": "prettier --write 'src/**/*.js'",
-    "p:w": "onchange 'src/**/*.js' -- prettier --write {{changed}}",
-    "test": "jest"
+    "lint": "eslint core --color",
+    "build": "babel core --out-dir dist --ignore node_modules",
+    "format": "onchange 'core/**/*.js' -- prettier --write {{changed}}",
+    "test": "jest",
+    "precommit": "lint-staged"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -27,7 +27,18 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "jest": "^24.1.0",
+    "lerna": "^3.13.0",
+    "lint-staged": "^8.1.4",
     "onchange": "^5.2.0",
     "prettier": "^1.16.4"
+  },
+  "engines": {
+    "node": ">= 6.0.0"
+  },
+  "lint-staged": {
+    "*.{js,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
