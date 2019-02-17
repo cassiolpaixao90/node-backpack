@@ -1,4 +1,21 @@
 {
-  "presets": ["env"],
-  "plugins": ["transform-runtime"]
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    "@babel/plugin-transform-regenerator",
+    "@babel/plugin-transform-parameters",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-transform-runtime",
+    "@babel/runtime/package",
+    "@babel/plugin-transform-modules-commonjs"
+  ]
 }
