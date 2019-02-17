@@ -6,7 +6,11 @@
   "author": "Cássio Paixão <cassiopaixaoti@gmail.com>",
   "license": "MIT",
   "private": true,
+  "bin": {
+    "build-back": "core/bin/init.js"
+  },
   "scripts": {
+    "start": "node core/bin/init.js",
     "lint": "eslint core --color",
     "build": "babel core --out-dir dist --ignore node_modules",
     "format": "onchange 'core/**/*.js' -- prettier --write {{changed}}",
