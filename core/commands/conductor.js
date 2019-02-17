@@ -1,6 +1,6 @@
 class Conductor {
   run(command) {
-    console.log(`Executing command: ${command.name}`)
+    // console.log(`Executing command: ${command.name}`)
     command.execute()
   }
 }

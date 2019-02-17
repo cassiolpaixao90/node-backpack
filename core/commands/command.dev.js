@@ -1,4 +1,4 @@
-class DevCommand {
+class Development {
   constructor(value) {
     this.value = value
   }
@@ -8,9 +8,8 @@ class DevCommand {
   }
 
   execute() {
-    console.log('Dev command ok')
     process.exit(0)
   }
 }
 
-module.exports = DevCommand
+module.exports = Development

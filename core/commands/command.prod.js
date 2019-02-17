@@ -1,4 +1,4 @@
-class ProdCommand {
+class Production {
   constructor(value) {
     this.value = value
   }
@@ -12,4 +12,4 @@ class ProdCommand {
   }
 }
 
-module.exports = ProdCommand
+module.exports = Production
