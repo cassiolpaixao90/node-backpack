@@ -19,11 +19,7 @@ class Production {
   }
 
   execute() {
-    console.log('Prod command ok')
-    console.log('mode', this.mode)
-    console.log('path', this.path)
     this.middleware.production()
-    process.exit(0)
   }
 }
 

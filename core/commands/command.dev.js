@@ -1,5 +1,6 @@
 const path = require('path')
 const middlewareBoot = require('../middlewares/middleware.boot')
+
 class Development {
   constructor(value) {
     this.value = value

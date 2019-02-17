@@ -17,6 +17,16 @@ class Run {
         this.options ? ` (${this.options})` : ''
       }'...`
     )
+    return task(this.options).then(resolution => {
+      const end = new Date()
+      const time = end.getTime() - start.getTime()
+      console.info(
+        `[${this.format(end)}] Finished '${task.name}${
+          this.options ? ` (${this.options})` : ''
+        }' after ${time} ms`
+      )
+      return resolution
+    })
   }
 }
 

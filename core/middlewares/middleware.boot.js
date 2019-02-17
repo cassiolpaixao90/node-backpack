@@ -1,17 +1,16 @@
+const middlewareDev = require('./middleware.dev')
+const middlewareProd = require('./middleware.prod')
 class Middleware {
   constructor(mode, path) {
     this.mode = mode
     this.path = path
   }
   development() {
-    const webpackConfig = require('../webpack/webpack.config.dev')
-    console.log(webpackConfig)
-    // const devMiddlewares = require('./middleware.dev')
-    // devMiddlewares(app, webpackConfig)
+    middlewareDev.execute()
   }
 
   production() {
-    console.log('pa')
+    middlewareProd.execute()
   }
 }
 
