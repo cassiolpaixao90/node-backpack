@@ -1,3 +1,4 @@
+const path = require('path')
 class Development {
   constructor(value) {
     this.value = value
@@ -18,6 +19,7 @@ class Development {
   execute() {
     console.log('mode', this.mode)
     console.log('path', this.path)
+    console.log(path.resolve('.babelrc'))
     process.exit(0)
   }
 }
