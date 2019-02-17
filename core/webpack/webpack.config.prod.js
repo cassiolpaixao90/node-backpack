@@ -1,13 +1,15 @@
+const path = require('path')
 const webpack = require('webpack')
 const nodeExternals = require('webpack-node-externals')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
-const path = require('path')
+const JavaScriptObfuscator = require('webpack-obfuscator')
 
 // const babelRcPath = path.resolve('.babelrc')
 const mainBabelOptions = {
   babelrc: true,
   cacheDirectory: true,
-  presets: []
+  presets: [],
+  plugins: []
 }
 
 mainBabelOptions.presets.push('../../.babelrc')
@@ -76,6 +78,9 @@ module.exports = {
     }),
     new FriendlyErrorsWebpackPlugin({
       clearConsole: false
+    }),
+    new JavaScriptObfuscator({
+      rotateUnicodeArray: true
     })
   ]
 }
