@@ -1,7 +1,9 @@
 const path = require('path')
+const middlewareBoot = require('../middlewares/middleware.boot')
 class Development {
   constructor(value) {
     this.value = value
+    this.middleware = new middlewareBoot(this.mode, this.path)
   }
 
   get mode() {
@@ -17,10 +19,9 @@ class Development {
   }
 
   execute() {
-    console.log('mode', this.mode)
-    console.log('path', this.path)
-    console.log(path.resolve('.babelrc'))
-    process.exit(0)
+    // console.log(path.resolve('.babelrc'))
+    this.middleware.development()
+    // process.exit(0)
   }
 }
 
