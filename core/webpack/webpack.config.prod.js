@@ -1,10 +1,12 @@
 const path = require('path')
+const fs = require('fs')
 const webpack = require('webpack')
 const nodeExternals = require('webpack-node-externals')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const JavaScriptObfuscator = require('webpack-obfuscator')
 
-// const babelRcPath = path.resolve('.babelrc')
+const babelRc = path.resolve('.babelrc');
+
 const mainBabelOptions = {
   babelrc: true,
   cacheDirectory: true,
@@ -12,7 +14,13 @@ const mainBabelOptions = {
   plugins: []
 }
 
-mainBabelOptions.presets.push('../../.babelrc')
+const hasBabelRc = () => fs.existsSync(babelRc)
+
+if (hasBabelRc) {
+  console.log('babel root');
+} else {
+  mainBabelOptions.presets.push('../../.babelrc')
+}
 
 module.exports = {
   mode: 'production',
@@ -53,8 +61,8 @@ module.exports = {
         loader: require.resolve('babel-loader'),
         exclude: [/node_modules/, path.resolve('build')],
         options: {
-          presets: ['@babel/preset-env'],
-          plugins: ['@babel/plugin-proposal-object-rest-spread']
+          presets: [...mainBabelOptions.presets],
+          plugins: [...mainBabelOptions.plugins]
         }
       }
     ]

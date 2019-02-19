@@ -14,6 +14,7 @@ module.exports = options => {
   const nodeModules = fs.readdirSync('node_modules').filter(function(x) {
     return ['.bin'].indexOf(x) === -1
   })
+
   return {
     mode: options.env === 'development' ? 'development' : 'production',
     target: 'node',
